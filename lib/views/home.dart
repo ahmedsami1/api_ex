@@ -1,5 +1,6 @@
 import 'package:api_ex/models/product_model.dart';
 import 'package:api_ex/services/get_all_product.dart';
+import 'package:api_ex/widgets/product_card.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -63,31 +64,7 @@ class _HomeViewState extends State<HomeView> {
             itemBuilder: (context, index) {
               final product = products[index];
 
-              return Card(
-                elevation: 4,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Image.network(
-                        product.imageUrl,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
-                        const Icon(Icons.error),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Text(
-                        product.title,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    Text('\$${product.price}'),
-                    Text('⭐ ${product.rating.rate}'),
-                  ],
-                ),
-              );
+              return ProductCard(product: product);
             },
           );
         },
@@ -95,3 +72,4 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
