@@ -64,7 +64,6 @@ class _HomeViewState extends State<HomeView> {
               childAspectRatio: 0.7,
             ),
             itemBuilder: (context, index) {
-              final product = products[index];
 
               return AnimationConfiguration.staggeredList(
                   position: index,
