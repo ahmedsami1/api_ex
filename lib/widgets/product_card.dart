@@ -26,11 +26,14 @@ class ProductCard extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: Image.network(
-                product.imageUrl,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) =>
-                const Icon(Icons.error),
+              child: Hero(
+                tag: product.id.toString(),
+                child: Image.network(
+                  product.imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.error),
+                ),
               ),
             ),
             Padding(

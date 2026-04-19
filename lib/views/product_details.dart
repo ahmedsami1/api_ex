@@ -23,12 +23,15 @@ class ProductDetailsView extends StatelessWidget {
 
             AspectRatio(
               aspectRatio: 1,
-              child: Image.network(
-                product.imageUrl,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) =>
-                const Icon(Icons.broken_image, size: 60),
+              child: Hero(
+                tag: product.id.toString(),
+                child: Image.network(
+                  product.imageUrl,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.broken_image, size: 60),
+                ),
               ),
             ),
 
